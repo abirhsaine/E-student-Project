@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UEValide{% endblock %}
+
+{% block body %}
+    <h1>UEValide</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ u_e_valide.id }}</td>
+            </tr>
+            <tr>
+                <th>Valide</th>
+                <td>{{ u_e_valide.valide ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_u_e_valide_index') }}">back to list</a>
+
+    <a href="{{ path('app_u_e_valide_edit', {'id': u_e_valide.id}) }}">edit</a>
+
+    {{ include('ue_valide/_delete_form.html.twig') }}
+{% endblock %}

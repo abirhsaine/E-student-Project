@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-Student
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="columns">
+			<div class="column is-one-third">
+				{{ include('panel.html.twig') }}
+			</div>
+			<div class="column">
+				<p class="subtitle">Résultat de la vue
+					<strong>{{ nomvue }}</strong>
+				</p>
+				<div class="table-container">
+                    <div id="table-vue"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+        const data =  JSON.parse('{{ donnees|json_encode|raw }}');
+
+        $('#table-vue').dxDataGrid({
+            dataSource: data,
+            keyExpr: '{{ donnees[0]|keys|first }}',
+            columns: [{% for key, value in donnees[0] %}{dataField: '{{ key }}', caption: "{{ key|trans|raw }}"},{% endfor %}],
+            showBorders: true,
+            searchPanel: {
+                visible: true,
+            }
+        });
+	</script>
+{% endblock %}

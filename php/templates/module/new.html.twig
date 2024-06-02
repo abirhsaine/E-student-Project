@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un module{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="#">Administration</a></li>
+            <li><a href="{{ path('app_module_index') }}">Module</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Création</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="title">
+        Création d'un module
+    </h1>
+
+    {{ include('module/_form.html.twig') }}
+</div>
+{% endblock %}

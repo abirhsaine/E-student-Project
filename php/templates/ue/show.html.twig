@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage d'une unité d'enseignement
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+			<ul>
+				<li>
+					<a href="#">Administration</a>
+				</li>
+				<li>
+					<a href="{{ path('app_ue_index') }}">UE</a>
+				</li>
+				<li class="is-active">
+					<a href="#" aria-current="page">Affichage</a>
+				</li>
+			</ul>
+		</nav>
+
+		<h1 class="title">Affichage d'une unité d'enseignement</h1>
+
+		<div class="table-container">
+			<table class="table is-fullwidth is-striped">
+				<tbody>
+					<tr>
+						<th>Code</th>
+						<td>{{ ue.code }}</td>
+					</tr>
+					<tr>
+						<th>Modalité</th>
+						<td>{{ ue.modalite }}</td>
+					</tr>
+					<tr>
+						<th>Libellé</th>
+						<td>{{ ue.libelle }}</td>
+					</tr>
+					<tr>
+						<th>Capacité</th>
+						<td>{{ ue.capacite }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="is-flex is-justify-content-center">
+			<a class="button is-primary is-light mr-4 is-block" href="{{ path('app_ue_edit', {'id': ue.code}) }}">Éditer</a>
+
+			{{ include('ue/_delete_form.html.twig') }}
+		</div>
+
+		<h2 class="title is-4">Modules inclus</h2>
+
+		<div class="mb-5 is-flex is-flex-wrap-wrap is-justify-content-center">
+			{% for module in ue.modules %}
+				<div class="card ml-1 mt-4 mr-1" style="min-width: 350px">
+					<header class="card-header">
+						<p class="card-header-title">{{ module.libelle }}</p>
+					</header>
+					<div class="card-content">
+						<div class="content">
+							{{ module.commentaire }}
+						</div>
+					</div>
+					<footer class="card-footer">
+						<a href="{{ path('app_module_show', {"code": module.code}) }}" class="card-footer-item">Voir plus de détails</a>
+					</footer>
+				</div>
+			{% else %}
+				<p class="has-text-centered">Aucun module dans cette unité d'enseignement</p>
+			{% endfor %}
+
+		</div>
+	</div>
+{% endblock %}

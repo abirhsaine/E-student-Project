@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}E-Student{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bulma.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bulma-timeline.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bulma-steps.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bulma-calendar.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dx.material.custom-scheme.css') }}">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        {{ include("parts/header.html.twig") }}
+        <main class="section">
+            {{ include("parts/flashes.html.twig") }}
+            {% block body %}{% endblock %}
+        </main>
+
+        {{ include("parts/footer.html.twig") }}
+        
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+            <script src="{{ asset('js/select2.min.js') }}"></script>
+            <script src="{{ asset('js/dx.all.js') }}"></script>
+            <script src="{{ asset('js/bulma-calendar.min.js') }}"></script>
+            <script src="{{ asset('js/index.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

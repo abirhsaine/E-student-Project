@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-Student{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="columns">
+        <div class="column is-one-third">
+            {{ include('panel.html.twig') }}
+        </div>
+        <div class="column is-flex">
+            <p class="subtitle is-flex" style="margin-top: 100px; text-align: center;">Vous pouvez utiliser le menu à gauche pour afficher le résultat de la vue séléctionnée</p>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

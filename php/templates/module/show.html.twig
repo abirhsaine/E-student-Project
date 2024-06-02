@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage d'un module{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+			<ul>
+				<li>
+					<a href="#">Administration</a>
+				</li>
+				<li>
+					<a href="{{ path('app_module_index') }}">Module</a>
+				</li>
+				<li class="is-active">
+					<a href="#" aria-current="page">Affichage</a>
+				</li>
+			</ul>
+		</nav>
+
+		<h1 class="title">Affichage d'un module</h1>
+
+		<div class="table-container">
+			<table class="table is-fullwidth is-striped">
+				<tbody>
+					<tr>
+						<th>Code</th>
+						<td>{{ module.code }}</td>
+					</tr>
+					<tr>
+						<th>Libellé</th>
+						<td>{{ module.libelle }}</td>
+					</tr>
+					<tr>
+						<th>Commentaire</th>
+						<td>{{ module.commentaire }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="is-flex is-justify-content-center">
+			<a class="button is-primary is-light mr-4 is-block" href="{{ path('app_module_edit', {'code': module.code}) }}">Éditer</a>
+
+			{{ include('module/_delete_form.html.twig') }}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage d'un responsable{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="#">Administration</a></li>
+            <li><a href="{{ path('app_responsable_index') }}">Responsables</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Affichage</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="title">Affichage d'un responsable</h1>
+
+    <div class="table-container">
+        <table class="table is-fullwidth is-striped">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td>{{ responsable.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ responsable.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ responsable.prenom }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="is-flex is-justify-content-center">
+        <a class="button is-primary is-light mr-4 is-block" href="{{ path('app_responsable_edit', {'id': responsable.id}) }}">Éditer</a>
+
+        {{ include('responsable/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

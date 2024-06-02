@@ -1,0 +1,57 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ path('home') }}">
+      <img src="{{ asset('images/logo.png') }}">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="{{ path('home') }}">
+        Accueil
+      </a>
+
+      <a class="navbar-item" href="{{ path('app_etudiant_index') }}">
+        Suivi des étudiants
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Plus
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="{{ path('app_parcours_type_index') }}">
+            Parcours Type
+          </a>
+          <a class="navbar-item" href="{{ path('app_semestre_index') }}">
+            Semestre
+          </a>
+          <a class="navbar-item" href="{{ path('app_ue_index') }}">
+            Unités d'enseignement
+          </a>
+          <a class="navbar-item" href="{{ path('app_module_index') }}">
+            Module
+          </a>
+          <a class="navbar-item" href="{{ path('app_responsable_index') }}">
+            Responsables
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

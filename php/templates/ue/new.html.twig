@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une unité d'enseignement{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="#">Administration</a></li>
+            <li><a href="{{ path('app_ue_index') }}">UE</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Création</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="title">
+        Création d'une unité d'enseignement
+    </h1>
+
+    {{ include('ue/_form.html.twig') }}
+</div>
+{% endblock %}

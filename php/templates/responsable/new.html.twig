@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un responsable{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="#">Administration</a></li>
+            <li><a href="{{ path('app_responsable_index') }}">Responsables</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Création</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="title">
+        Création d'un responsable
+    </h1>
+
+    {{ include('responsable/_form.html.twig') }}
+</div>
+{% endblock %}

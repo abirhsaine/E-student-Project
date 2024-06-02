@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New UEValide{% endblock %}
+
+{% block body %}
+    <h1>Create new UEValide</h1>
+
+    {{ include('ue_valide/_form.html.twig') }}
+
+    <a href="{{ path('app_u_e_valide_index') }}">back to list</a>
+{% endblock %}

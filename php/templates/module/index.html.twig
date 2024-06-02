@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des modules
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+			<ul>
+				<li>
+					<a href="#">Administration</a>
+				</li>
+				<li class="is-active">
+					<a href="#" aria-current="page">Modules</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="is-flex is-justify-content-space-between">
+			<h1 class="title">
+				Liste des modules
+			</h1>
+			<a class="button is-primary is-block is-light" href="{{ path('app_module_new') }}">Ajouter</a>
+		</div>
+
+		<div class="table-container">
+			<table class="table is-fullwidth is-striped">
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Libellé</th>
+						<th>Commentaire</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for module in modules %}
+						<tr>
+							<td>{{ module.code }}</td>
+							<td>{{ module.libelle }}</td>
+							<td>{{ module.commentaire }}</td>
+							<td>
+								<a href="{{ path('app_module_show', {'code': module.code}) }}">
+									<span class="icon-text">
+										<span class="icon">
+											<i class="fas fa-eye"></i>
+										</span>
+										<span>Afficher</span>
+									</span>
+								</a>
+								<a href="{{ path('app_module_edit', {'code': module.code}) }}">
+									<span class="icon-text">
+										<span class="icon">
+											<i class="fas fa-pen"></i>
+										</span>
+										<span>Editer</span>
+									</span>
+								</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="4">Pas de modules</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

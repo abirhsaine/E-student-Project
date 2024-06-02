@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des unités d'enseignement{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+			<ul>
+				<li>
+					<a href="#">Administration</a>
+				</li>
+				<li class="is-active">
+					<a href="#" aria-current="page">UE</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="is-flex is-justify-content-space-between">
+			<h1 class="title">
+				Liste des unités d'enseignement
+			</h1>
+			<a class="button is-primary is-block is-light" href="{{ path('app_ue_new') }}">Ajouter</a>
+		</div>
+
+		<div class="table-container">
+			<table class="table is-fullwidth is-striped">
+
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Modalité</th>
+						<th>Libellé</th>
+						<th>Capacité</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for ue in ues %}
+						<tr>
+							<td>{{ ue.code }}</td>
+							<td>{{ ue.modalite }}</td>
+							<td>{{ ue.libelle }}</td>
+							<td>{{ ue.capacite }}</td>
+							<td>
+                                <a href="{{ path('app_ue_show', {'id': ue.code}) }}">
+                                    <span class="icon-text">
+                                        <span class="icon">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                        <span>Afficher</span>
+                                    </span>
+                                </a>
+                                <a href="{{ path('app_ue_edit', {'id': ue.code}) }}">
+                                    <span class="icon-text">
+                                        <span class="icon">
+                                            <i class="fas fa-pen"></i>
+                                        </span>
+                                        <span>Editer</span>
+                                    </span>
+                                </a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">Pas d'UE</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

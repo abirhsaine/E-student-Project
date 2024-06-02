@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant index{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="#">Administration</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Etudiants</a></li>
+        </ul>
+    </nav>
+
+    <div class="is-flex is-justify-content-space-between">
+        <h1 class="title">
+            Suivi des étudiants
+        </h1> 
+        <a class="button is-primary is-block is-light" href="{{ path('app_etudiant_new') }}">Ajouter</a>
+    </div>
+
+    <div class="table-container">
+        <table class="table is-fullwidth is-striped">
+            <thead>
+                <tr>
+                    <th>INE</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de naissance</th>
+                    <th>Crédits ECTS</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for etudiant in etudiants %}
+                <tr>
+                    <td>{{ etudiant.ine }}</td>
+                    <td>{{ etudiant.nom }}</td>
+                    <td>{{ etudiant.prenom }}</td>
+                    <td>{{ etudiant.dateDeNaissance ? etudiant.dateDeNaissance|date('Y-m-d') : '' }}</td>
+                    <td>{{ etudiant.ects }}</td>
+                    <td>
+                        <a href="{{ path('app_etudiant_show', {'id': etudiant.ine}) }}">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                    <span>Afficher</span>
+                                </span>
+                            </a>
+                            <a href="{{ path('app_etudiant_edit', {'id': etudiant.ine}) }}">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fas fa-pen"></i>
+                                    </span>
+                                    <span>Editer</span>
+                                </span>
+                            </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Pas d'étudiants enregistrés</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

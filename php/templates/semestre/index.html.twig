@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des semestres{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+			<ul>
+				<li>
+					<a href="#">Administration</a>
+				</li>
+				<li class="is-active">
+					<a href="#" aria-current="page">Semestres</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="is-flex is-justify-content-space-between">
+			<h1 class="title">
+				Liste des semestres
+			</h1>
+			<a class="button is-primary is-block is-light" href="{{ path('app_semestre_new') }}">Ajouter</a>
+		</div>
+
+		<div class="table-container">
+			<table class="table is-fullwidth is-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Type</th>
+						<th>Pair</th>
+						<th>Année</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for semestre in semestres %}
+						<tr>
+							<td>{{ semestre.id }}</td>
+							<td>{{ semestre.type }}</td>
+							<td>{{ semestre.pair ? 'Oui' : 'Non' }}</td>
+							<td>{{ semestre.annee }}</td>
+							<td>
+								<a href="{{ path('app_semestre_show', {'id': semestre.id}) }}">
+									<span class="icon-text">
+										<span class="icon">
+											<i class="fas fa-eye"></i>
+										</span>
+										<span>Afficher</span>
+									</span>
+								</a>
+								<a href="{{ path('app_semestre_edit', {'id': semestre.id}) }}">
+									<span class="icon-text">
+										<span class="icon">
+											<i class="fas fa-pen"></i>
+										</span>
+										<span>Editer</span>
+									</span>
+								</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

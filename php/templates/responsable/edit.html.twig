@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Édition d'un responsable{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="#">Administration</a></li>
+            <li><a href="{{ path('app_responsable_index') }}">Responsables</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Édition</a></li>
+        </ul>
+    </nav>
+
+    <div class="is-flex is-justify-content-space-between">
+        <h1 class="title">
+            Édition d'un responsable
+        </h1> 
+        {{ include('responsable/_delete_form.html.twig') }}
+    </div>
+
+    {{ include('responsable/_form.html.twig', {'button_label': 'Éditer'}) }}
+
+</div>
+{% endblock %}

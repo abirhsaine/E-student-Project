@@ -1,0 +1,27 @@
+codeUE: Code unité d'enseignement
+codeModule: Code du module
+count: Nombre
+UE: Unité d'enseignement
+etudiant: Étudiant
+annee: Année
+uETotal: UE
+nbinscrit: Nombre d'inscrits
+nbajournee: Nombre d'ajournées
+ueechec: UE échouée 
+ine: INE
+semestreid: ID du semestre
+nom: Nom
+prenom: Prénom
+anneecesure1: 1ère année de césure
+anneecesure2: 2ème année de césure
+nbects: ECTS
+nomDiplomee: Nom
+prenomDiplomee: Prénom
+dateDeNaissance: Date de naissance
+nomue: UE
+nomEtudiant: Nom
+prenomEtudiant: Prénom
+ineetudiant: INE
+idsemestre: ID du semestre
+codeue: Code UE
+valide: Validé

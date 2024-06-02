@@ -1,0 +1,40 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:14.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: app
+    ports:
+      - "5432:5432"
+    # Initialisation de la base de données avec le schéma
+    volumes:
+      - "./database:/docker-entrypoint-initdb.d/"
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+     - "./database/servers.json:/pgadmin4/servers.json"
+
+  maildev:
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+
+  php:
+    build: ./php
+    restart: always
+    volumes:
+      - ./php:/var/www/html
+    command: php -S 0.0.0.0:80 -t public
+    ports:
+      - "8080:80"

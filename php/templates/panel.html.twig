@@ -1,0 +1,113 @@
+<nav class="panel">
+<p class="panel-heading">
+    Vues
+</p>
+<div class="panel-block">
+    <p class="control has-icons-left">
+    <input class="input" type="text" placeholder="Rechercher" id="rechercheListe" onkeyup="rechercheListe()">
+    <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+    </span>
+    </p>
+</div>
+<p class="panel-tabs">
+    <a data-category="All">Tous</a>
+    <a data-category="UE">UE</a>
+    <a data-category="Module">Module</a>
+    <a data-category="Ajourné">Ajourné</a>
+    <a data-category="Césure">Césure</a>
+    <a data-category="Ecole">Ecole</a>
+</p>
+<div id="panels-block">
+    <a class="panel-block" data-category="UE" href="{{ path("app_vues", {"name": "VueUEImpair"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueUEImpair
+    </a>
+    <a class="panel-block" data-category="UE" href="{{ path("app_vues", {"name": "VueUEPair"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueUEPair
+    </a>
+    <a class="panel-block" data-category="UE" href="{{ path("app_vues", {"name": "VueUEImpairPair"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueUEImpairPair
+    </a>
+    <a class="panel-block" data-category="Module" href="{{ path("app_vues", {"name": "VueModuleNbUE"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueModuleNbUE
+    </a>
+    <a class="panel-block" data-category="Module" href="{{ path("app_vues", {"name": "VueModuleImpair"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueModuleImpair
+    </a>
+    <a class="panel-block" data-category="Module" href="{{ path("app_vues", {"name": "VueModulePair"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueModulePair
+    </a>
+    <a class="panel-block" data-category="Ajourné" href="{{ path("app_vues", {"name": "VueAjourneeDetails"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueAjourneeDetails
+    </a>
+    <a class="panel-block" data-category="Ajourné" href="{{ path("app_vues", {"name": "VueAjourneeAGG"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueAjourneeAGG
+    </a>
+    <a class="panel-block" data-category="Césure" href="{{ path("app_vues", {"name": "VueCesure"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueCésure
+    </a>
+    <a class="panel-block" data-category="Césure" href="{{ path("app_vues", {"name": "Vue2Cesure"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        Vue2Césure
+    </a>
+    <a class="panel-block" data-category="Ecole" href="{{ path("app_vues", {"name": "VueECTS"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueECTS
+    </a>
+    <a class="panel-block" data-category="Ecole" href="{{ path("app_vues", {"name": "VueDiplomes"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueDiplomes
+    </a>
+    <a class="panel-block" data-category="Ecole" href="{{ path("app_vues", {"name": "VueInscritsUE"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueInscritsUE
+    </a>
+    <a class="panel-block" data-category="Ecole" href="{{ path("app_vues", {"name": "VueAcquisX"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueAcquisX
+    </a>
+    <a class="panel-block" data-category="UE" href="{{ path("app_vues", {"name": "VueInscritsUnite"})}}">
+        <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        VueInscritsUnite
+    </a>
+</div>
+</nav>
